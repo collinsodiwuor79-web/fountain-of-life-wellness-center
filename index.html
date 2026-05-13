@@ -3,184 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fountain of Life Wellness Center | Kisumu</title>
+    <title>Fountain of Life Wellness Center | Professional Rehabilitation</title>
     <style>
-        /* --- CSS Reset & Global Styles --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background-color: #f8f9fa; color: #333; line-height: 1.6; overflow-x: hidden; }
+        :root {
+            --primary-blue: #1a5276;
+            --accent-blue: #5dade2;
+            --soft-bg: #f4f7f6;
+            --text-dark: #2c3e50;
+            --white: #ffffff;
+        }
 
-        /* --- Header Section --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--soft-bg);
+        }
+
+        /* Top Navigation */
         header {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('IMG-20260429-WA0006.jpg') center/cover no-repeat;
+            background: var(--white);
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quick-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .quick-links a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .quick-links a:hover {
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(26, 82, 118, 0.8), rgba(26, 82, 118, 0.8)),
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            color: white;
-            padding: 20px;
-        }
-        .logo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; margin-bottom: 20px; }
-        header h1 { font-size: clamp(1.8rem, 6vw, 3.5rem); margin-bottom: 10px; }
-        header h2 { font-size: clamp(1rem, 3vw, 1.5rem); color: #a2d2ff; margin-bottom: 25px; font-style: italic; }
-        
-        /* Decorative Non-Clickable Button */
-        .badge {
-            background-color: #27ae60;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-            cursor: default;
-            user-select: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            color: var(--white);
+            padding: 0 20px;
         }
 
-        /* --- Image Slider --- */
-        .slider-section { width: 100%; height: 400px; overflow: hidden; background: #000; }
-        .slider { display: flex; width: 400%; height: 100%; animation: slide 20s infinite ease-in-out; }
-        .slider img { width: 25%; height: 100%; object-fit: cover; }
-        @keyframes slide {
-            0%, 20% { transform: translateX(0); }
-            25%, 45% { transform: translateX(-25%); }
-            50%, 70% { transform: translateX(-50%); }
-            75%, 95% { transform: translateX(-75%); }
-            100% { transform: translateX(0); }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
 
-        /* --- Services Grid --- */
-        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #2c3e50; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); border-top: 5px solid #27ae60; }
-        .card h3 { color: #27ae60; margin-bottom: 15px; }
+        /* Section Styling */
+        section {
+            padding: 80px 10%;
+        }
 
-        /* --- Info Section --- */
-        .info-box { background: #fff; padding: 40px; border-radius: 15px; margin-top: 40px; text-align: center; }
-        .gallery { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
-        .gallery img { width: 45%; min-width: 300px; height: 250px; object-fit: cover; border-radius: 10px; }
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
 
-        /* --- Map Section --- */
-        .map-wrapper { width: 100%; height: 450px; background: #eee; position: relative; margin-top: 50px; border-top: 5px solid #27ae60; }
-        iframe { width: 100%; height: 100%; border: 0; }
+        h2 {
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 15px;
+            border-left: 5px solid var(--accent-blue);
+        }
 
-        /* --- Footer --- */
-        footer { background: #1a1a1a; color: #fff; padding: 60px 20px; text-align: center; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1100px; margin: auto; }
-        .footer-box h4 { color: #27ae60; margin-bottom: 20px; text-transform: uppercase; }
-        .emergency-badge { background: #e74c3c; color: white; padding: 10px 20px; border-radius: 5px; display: inline-block; cursor: default; }
-        .payment-card { background: #2c3e50; padding: 15px; border-radius: 8px; text-align: left; margin-top: 10px; }
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
 
-        /* --- Mobile Responsiveness --- */
+        /* Map Section */
+        .map-container {
+            margin-top: 40px;
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .gallery img { width: 100%; }
-            .slider-section { height: 250px; }
+            .hero h1 { font-size: 2rem; }
+            header { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADING PART -->
     <header>
-        <img src="IMG-20260429-WA0006.jpg" alt="Fountain of Life Logo" class="logo">
-        <h1>Fountain of Life Wellness Center</h1>
-        <h2>Where Healing Begins</h2>
-        <p>The best Rehabilitation Center in Kenya, empowering lives through healing and transformation.</p>
-        <div class="badge">Inquiries: 0142069201</div>
+        <div class="quick-links">
+            <a href="#about">About</a>
+            <a href="#address">Address</a>
+            <a href="#mission">Mission & Vision</a>
+        </div>
+        <div class="brand-name">Fountain of Life</div>
     </header>
 
-    <!-- BODY PART: SLIDER -->
-    <section class="slider-section">
-        <div class="slider">
-            <img src="Screenshot 2026-05-06 13.10.42.png" alt="Facility 1">
-            <img src="Screenshot 2026-05-06 12.13.57.png" alt="Facility 2">
-            <img src="Screenshot 2026-05-06 12.10.55.png" alt="Facility 3">
-            <img src="Screenshot 2026-05-06 12.08.38.png" alt="Facility 4">
+    <section class="hero">
+        <h1>Fountain of Life Wellness Center</h1>
+        <p>A professional sanctuary for rehabilitation and holistic recovery in Kisumu.</p>
+    </section>
+
+    <!-- Page 1 & 2: About Us -->
+    <section id="about">
+        <h2>About Our Professional Care</h2>
+        <div class="content-grid">
+            <div class="text-block">
+                <p>Fountain of Life Wellness Center stands as a premier rehabilitation facility dedicated to restoring dignity and health. Our clinical team utilizes evidence-based psychological interventions to support long-term sobriety.</p>
+                <br>
+                <p>We provide a serene environment away from the stresses of urban life, allowing residents to focus entirely on their recovery journey through professional guidance and peer support.</p>
+            </div>
+            <div class="image-block">
+                <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=600" alt="Rehab Care" style="width:100%; border-radius:8px;">
+            </div>
         </div>
     </section>
 
-    <!-- BODY PART: SERVICES -->
-    <div class="container">
-        <h2 class="section-title">Our Services</h2>
-        <div class="grid">
+    <!-- Page 3: Mission & Vision -->
+    <section id="mission" style="background: #ebf5fb;">
+        <div class="content-grid">
             <div class="card">
-                <h3>Psychiatry Consultations</h3>
-                <p>Treatment for Bipolar, Schizophrenia, and Psychosis with personalized planning.</p>
+                <h2>Our Mission</h2>
+                <p>To provide accessible, high-quality, and evidence-based rehabilitation services that empower individuals to reclaim their lives from addiction through comprehensive professional care.</p>
             </div>
             <div class="card">
-                <h3>Medical Detoxification</h3>
-                <p>Safe removal of alcohol and toxic substances from the body's organs.</p>
-            </div>
-            <div class="card">
-                <h3>Stabilization</h3>
-                <p>Medication and supplements to aid the body after intensive detoxification.</p>
-            </div>
-            <div class="card">
-                <h3>Addiction Care</h3>
-                <p>Specialized treatment for alcohol and substance dependency.</p>
-            </div>
-            <div class="card">
-                <h3>Family Therapy</h3>
-                <p>Professional counseling to heal relationships and support networks.</p>
-            </div>
-            <div class="card">
-                <h3>Aftercare Support</h3>
-                <p>Monitoring progress with therapy sessions after our 3-month program.</p>
+                <h2>Our Vision</h2>
+                <p>To be the leading wellness sanctuary in the region, recognized for excellence in therapeutic innovation and successful community reintegration.</p>
             </div>
         </div>
+    </section>
 
-        <div class="info-box">
-            <div class="gallery">
-                <img src="IMG-20260427-WA0015.jpg" alt="Interior">
-                <img src="IMG-20260427-WA0014.jpg" alt="Space">
+    <!-- Page 4 & 5: Services -->
+    <section>
+        <h2>Holistic Rehabilitation Services</h2>
+        <div class="content-grid">
+            <div class="card">
+                <h3>Inpatient Programs</h3>
+                <p>24/7 supervised clinical care in a safe, structured environment designed for deep healing.</p>
             </div>
-            <p>We remain faithful to restore transformation, offering 24/7 residential care for both local and international admissions.</p>
-            <br>
-            <div class="badge">Call Today: 0142069201</div>
+            <div class="card">
+                <h3>Psychological Counseling</h3>
+                <p>Individualized therapy sessions targeting the root causes of addiction and mental health challenges.</p>
+            </div>
+            <div class="card">
+                <h3>Wellness Activities</h3>
+                <p>Integrating nutrition, mindfulness, and physical fitness into the recovery protocol.</p>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- MAP SECTION -->
-    <div class="map-wrapper">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.215574512!2d34.664426!3d-0.088198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d6910609b55555%3A0x6b87612f12345678!2sKisian%20Junction%2C%20Kisumu!5e0!3m2!1sen!2ske!4v1715012345678!5m2!1sen!2ske" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
+    <!-- Page 6: Address & Map -->
+    <section id="address">
+        <h2>Our Location</h2>
+        <p>Located in the quiet outskirts of Kisian, providing the perfect backdrop for introspection and recovery.</p>
+        <p><strong>Address:</strong> Kisian, Bondo Usenge Road, Kisumu, Kenya.</p>
+        
+        <div class="map-container">
+            <!-- Embedded Google Map centered on the Kisian/Bondo Usenge Road area -->
+            <iframe 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                scrolling="no" 
+                marginheight="0" 
+                marginwidth="0" 
+                src="https://maps.google.com/maps?q=Kisian%20Bondo%20Usenge%20Road%20Kisumu&t=&z=14&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+        </div>
+    </section>
 
-    <!-- TAIL PART -->
+    <!-- Page 7 & 8: Recovery & Community -->
+    <section style="text-align:center;">
+        <h2>Sustainable Recovery</h2>
+        <p style="max-width: 800px; margin: 0 auto;">Our commitment extends beyond the duration of stay. We focus on building life skills and providing a robust referral network to ensure every individual remains supported within the community.</p>
+        <div style="margin-top:40px;">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Group Session" style="width:100%; max-width:800px; border-radius:12px;">
+        </div>
+    </section>
+
     <footer>
-        <div class="footer-grid">
-            <div class="footer-box">
-                <h4>Contact Us</h4>
-                <p>📧 fountainoflifeservices@gmail.com</p>
-                <p>FB: Fountain of Life Wellness Center</p>
-                <p>IG: @fountainoflifewellness</p>
-                <p><strong>Open 24/7</strong></p>
-            </div>
-            <div class="footer-box">
-                <h4>Location</h4>
-                <p>Kisumu-Kisian Junction,<br>Bondo Usenge Rd, Kisumu, Kenya</p>
-            </div>
-            <div class="footer-box">
-                <h4>Support</h4>
-                <div class="emergency-badge">Emergency: 0720731430</div>
-            </div>
-            <div class="footer-box">
-                <h4>Payment (KCB)</h4>
-                <div class="payment-card">
-                    <p>Paybill: 522 522</p>
-                    <p>Acc: 1142671674</p>
-                    <p>Fountain of Life Wellness Center</p>
-                </div>
-            </div>
-        </div>
-        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Fountain of Life Wellness Center. All Rights Reserved.</p>
+        <p>&copy; 2026 Fountain of Life Wellness Center. All Rights Reserved.</p>
+        <p>Professional Rehabilitation & Counseling Services</p>
     </footer>
 
 </body>

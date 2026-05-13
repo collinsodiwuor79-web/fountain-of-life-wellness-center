@@ -3,329 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fountain of Life Wellness Center</title>
-    <meta name="google-site-verification" content="8lzgpGbSMSivmpiYidvqyfYSyHJAkzSrOP_HgeRw_HM" />
+    <title>Fountain of Life Wellness Center | Kisumu</title>
     <style>
-        /* --- CSS STYLING --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+        /* --- CSS Reset & Global Styles --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background-color: #f8f9fa; color: #333; line-height: 1.6; overflow-x: hidden; }
 
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f7f6;
-            overflow-x: hidden;
-        }
-
-        /* Header / Hero Section */
+        /* --- Header Section --- */
         header {
-            position: relative;
-            min-height: 100vh;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('IMG-20260429-WA0006.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-                        url('IMG-20260429-WA0006.jpg') no-repeat center center/cover;
             padding: 20px;
         }
-
-        .header-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            margin-bottom: 15px;
-            object-fit: cover;
-        }
-
-        header h1 {
-            font-size: clamp(1.8rem, 5vw, 3rem);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        header h2 {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-style: italic;
-            color: #d1f2eb;
-            margin-bottom: 15px;
-        }
-
-        header p {
-            max-width: 800px;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-        }
-
-        /* Button Styling */
-        .btn {
+        .logo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; margin-bottom: 20px; }
+        header h1 { font-size: clamp(1.8rem, 6vw, 3.5rem); margin-bottom: 10px; }
+        header h2 { font-size: clamp(1rem, 3vw, 1.5rem); color: #a2d2ff; margin-bottom: 25px; font-style: italic; }
+        
+        /* Decorative Non-Clickable Button */
+        .badge {
             background-color: #27ae60;
             color: white;
-            padding: 15px 35px;
-            text-decoration: none;
+            padding: 12px 30px;
             border-radius: 50px;
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            text-transform: uppercase;
             display: inline-block;
-            font-size: 0.9rem;
-            margin: 10px;
+            cursor: default;
+            user-select: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .btn:hover {
-            background-color: #219150;
-            transform: translateY(-3px);
-        }
-
-        .btn-booking {
-            background-color: #2980b9;
-        }
-
-        .btn-booking:hover {
-            background-color: #2471a3;
-        }
-
-        /* --- Stylistic Image Slider --- */
-        .slider-container {
-            width: 100%;
-            height: 450px;
-            overflow: hidden;
-            position: relative;
-            background: #000;
-        }
-
-        .slider {
-            display: flex;
-            width: 500%; /* For 5 images */
-            height: 100%;
-            animation: slideAnimation 25s infinite ease-in-out;
-        }
-
-        .slider img {
-            width: 20%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.9);
-        }
-
-        @keyframes slideAnimation {
-            0% { transform: translateX(0); }
-            18% { transform: translateX(0); }
-            20% { transform: translateX(-20%); }
-            38% { transform: translateX(-20%); }
-            40% { transform: translateX(-40%); }
-            58% { transform: translateX(-40%); }
-            60% { transform: translateX(-60%); }
-            78% { transform: translateX(-60%); }
-            80% { transform: translateX(-80%); }
-            98% { transform: translateX(-80%); }
+        /* --- Image Slider --- */
+        .slider-section { width: 100%; height: 400px; overflow: hidden; background: #000; }
+        .slider { display: flex; width: 400%; height: 100%; animation: slide 20s infinite ease-in-out; }
+        .slider img { width: 25%; height: 100%; object-fit: cover; }
+        @keyframes slide {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-25%); }
+            50%, 70% { transform: translateX(-50%); }
+            75%, 95% { transform: translateX(-75%); }
             100% { transform: translateX(0); }
         }
 
-        /* Services Section */
-        .services-section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: auto;
-            text-align: center;
-        }
+        /* --- Services Grid --- */
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #2c3e50; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-top: 5px solid #27ae60; }
+        .card h3 { color: #27ae60; margin-bottom: 15px; }
 
-        .services-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #2c3e50;
-            position: relative;
-        }
+        /* --- Info Section --- */
+        .info-box { background: #fff; padding: 40px; border-radius: 15px; margin-top: 40px; text-align: center; }
+        .gallery { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
+        .gallery img { width: 45%; min-width: 300px; height: 250px; object-fit: cover; border-radius: 10px; }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
+        /* --- Map Section --- */
+        .map-wrapper { width: 100%; height: 450px; background: #eee; position: relative; margin-top: 50px; border-top: 5px solid #27ae60; }
+        iframe { width: 100%; height: 100%; border: 0; }
 
-        .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border-top: 5px solid #27ae60;
-            transition: transform 0.3s ease;
-        }
+        /* --- Footer --- */
+        footer { background: #1a1a1a; color: #fff; padding: 60px 20px; text-align: center; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1100px; margin: auto; }
+        .footer-box h4 { color: #27ae60; margin-bottom: 20px; text-transform: uppercase; }
+        .emergency-badge { background: #e74c3c; color: white; padding: 10px 20px; border-radius: 5px; display: inline-block; cursor: default; }
+        .payment-card { background: #2c3e50; padding: 15px; border-radius: 8px; text-align: left; margin-top: 10px; }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-card h3 {
-            margin-bottom: 15px;
-            color: #27ae60;
-        }
-
-        /* Booking Section */
-        .booking-section {
-            background-color: #ecf0f1;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .booking-container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-
-        /* Map Section */
-        .map-container {
-            width: 100%;
-            height: 450px;
-            background: #ddd;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: #ecf0f1;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .emergency-contact {
-            display: block;
-            background-color: #e74c3c;
-            color: white;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        .payment-info {
-            background: #2c3e50;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: left;
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .gallery img { width: 100%; }
+            .slider-section { height: 250px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- HEADING PART -->
     <header>
-        <img src="IMG-20260429-WA0006.jpg" alt="Logo" class="header-logo">
+        <img src="IMG-20260429-WA0006.jpg" alt="Fountain of Life Logo" class="logo">
         <h1>Fountain of Life Wellness Center</h1>
-        <h2>"Where Healing Begins"</h2>
-        <h3>ABOUT US</h3>
-        <p>Fountain of Life is a dedicated mental health and rehabilitation referral firm based in Kisumu, committed to bridging the gap between individuals in need and professional clinical care. We specialize in providing a supportive pathway for those navigating the complexities of substance use, psychological distress, and behavioral health challanges.
-            By establishing strong collaborative partnership with leading private hospitals and specialized medical facilities, we ensure that every client receives a personalized recovery roadmap. Our mission is to facilitate seamless access to high-quality inpatient and outpatient services, ensuring that the journey towards wellness is grounded in dignity, professional integrity, and comprehensive support.Core services are: Clinical Assessments & Referrals.
-            Wellness advocacy.</p>
-        <h4>OUR VISION</h4>
-        <P>To be the best gateway for mental health transformation in Kenya & Kisumu, fostering a community where professional help is accessible, reliable, and life-changing.</P>
-        <h5> WHAT WE DO</h5>
-        <p>Empowering Lives Through Healing and Transformation. The best rehabilitation center in Kenya.The best rehabilitation center in Kisumu.</p>
-        <h6>LINK UP WITH US</h6>
-        <p>To keep intouch with us you can book a session for admission or make appointment for a previsit of the facility, feel highly welcomed at Fountain of Life Wellness Center.</p>
-        <div class="header-btns">
-            <span class="btn" style="cursor: default;">Call Us For Help</span>
-            <a href="#booking" class="btn btn-booking">Book a Session</a>
-        </div>
+        <h2>Where Healing Begins</h2>
+        <p>The best Rehabilitation Center in Kenya, empowering lives through healing and transformation.</p>
+        <div class="badge">Inquiries: 0142069201</div>
     </header>
 
-    <section class="slider-container">
+    <!-- BODY PART: SLIDER -->
+    <section class="slider-section">
         <div class="slider">
             <img src="Screenshot 2026-05-06 13.10.42.png" alt="Facility 1">
             <img src="Screenshot 2026-05-06 12.13.57.png" alt="Facility 2">
             <img src="Screenshot 2026-05-06 12.10.55.png" alt="Facility 3">
             <img src="Screenshot 2026-05-06 12.08.38.png" alt="Facility 4">
-            <img src="IMG-20260427-WA0015.jpg" alt="Gallery 1">
         </div>
     </section>
 
-    <section class="services-section">
-        <h2>Our Specialized Services</h2>
-        <div class="service-grid">
-            <div class="service-card"><h3>Psychiatry Consultation</h3><p>Professional treatment for conditions such as Bipolar, Schizophrenia, and Psychosis.</p></div>
-            <div class="service-card"><h3>Psychoeducation</h3><p>Guidance on substance abuse dangers and self-care strategies for prevention.</p></div>
-            <div class="service-card"><h3>12 Steps of Recovery</h3><p>Guided self-awareness to reconcile with others and build a clear mindset for a better future.</p></div>
-            <div class="service-card"><h3>Medical Detox</h3><p>Safe removal of alcohol and drugs to restore normal bodily functions.</p></div>
-            <div class="service-card"><h3>Aftercare</h3><p>90-day follow-up program to prevent relapse and monitor long-term recovery.</p></div>
-            <div class="service-card"><h3>Residential Care</h3><p>24/7 onsite intensive care for patients needing deep support.</p></div>
+    <!-- BODY PART: SERVICES -->
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Psychiatry Consultations</h3>
+                <p>Treatment for Bipolar, Schizophrenia, and Psychosis with personalized planning.</p>
+            </div>
+            <div class="card">
+                <h3>Medical Detoxification</h3>
+                <p>Safe removal of alcohol and toxic substances from the body's organs.</p>
+            </div>
+            <div class="card">
+                <h3>Stabilization</h3>
+                <p>Medication and supplements to aid the body after intensive detoxification.</p>
+            </div>
+            <div class="card">
+                <h3>Addiction Care</h3>
+                <p>Specialized treatment for alcohol and substance dependency.</p>
+            </div>
+            <div class="card">
+                <h3>Family Therapy</h3>
+                <p>Professional counseling to heal relationships and support networks.</p>
+            </div>
+            <div class="card">
+                <h3>Aftercare Support</h3>
+                <p>Monitoring progress with therapy sessions after our 3-month program.</p>
+            </div>
         </div>
-    </section>
 
-    <section id="booking" class="booking-section">
-        <div class="booking-container">
-            <h2 style="margin-bottom: 20px; color: #2c3e50;">Schedule a Private Session</h2>
-            <p style="margin-bottom: 30px;">Take the first step toward transformation. Click the button below to fill out our intake form via Google Forms.</p>
-            
-            <a href="https://forms.gle/nsGBXzKHj72t4fyz9" target="_blank" class="btn btn-booking" style="font-size: 1.2rem; padding: 20px 40px;">
-                Open Booking Form
-            </a>
-            
-            <p style="margin-top: 20px; font-size: 0.9rem; color: #7f8c8d;">
-                *All information shared is strictly confidential and used for session planning.
-            </p>
+        <div class="info-box">
+            <div class="gallery">
+                <img src="IMG-20260427-WA0015.jpg" alt="Interior">
+                <img src="IMG-20260427-WA0014.jpg" alt="Space">
+            </div>
+            <p>We remain faithful to restore transformation, offering 24/7 residential care for both local and international admissions.</p>
+            <br>
+            <div class="badge">Call Today: 0142069201</div>
         </div>
-    </section>
-
-    <section class="services-section" style="background: white;">
-        <p style="max-width: 900px; margin: auto; font-size: 1.1rem; color: #555;">
-            We remain faithful to restore transformation and healing into individuals struggling with addiction. We handle voluntary and involuntary admissions 24/7. Watch for signs like hallucinations, insomnia or poor concentration. We offer counseling, psychotherapy, and medical support including mood stabilizers and antidepressants.
-        </p>
-    </section>
-
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.167232247343!2d34.666667!3d-0.083333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMDUnMDAuMCJTIDM0wrA0MCcwMC4wIkU!5e0!3m2!1sen!2ske!4v1715000000000!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
+    <!-- MAP SECTION -->
+    <div class="map-wrapper">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.215574512!2d34.664426!3d-0.088198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d6910609b55555%3A0x6b87612f12345678!2sKisian%20Junction%2C%20Kisumu!5e0!3m2!1sen!2ske!4v1715012345678!5m2!1sen!2ske" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
+    <!-- TAIL PART -->
     <footer>
         <div class="footer-grid">
             <div class="footer-box">
-                <h4>Contact Info</h4>
-                <p>📧 Email: fountainoflifeservices@gmail.com</p>
-                <p>📍 Location: Kisian Junction, Bondo Usenge Rd</p>
-                <p style="margin-top:10px;"><span style="background:#27ae60; padding:5px 10px; border-radius:4px;">Open 24/7</span></p>
+                <h4>Contact Us</h4>
+                <p>📧 fountainoflifeservices@gmail.com</p>
+                <p>FB: Fountain of Life Wellness Center</p>
+                <p>IG: @fountainoflifewellness</p>
+                <p><strong>Open 24/7</strong></p>
             </div>
             <div class="footer-box">
-                <h4>Emergency</h4>
-                <span class="emergency-contact" style="cursor: default;">Call Emergency Support</span>
+                <h4>Location</h4>
+                <p>Kisumu-Kisian Junction,<br>Bondo Usenge Rd, Kisumu, Kenya</p>
             </div>
             <div class="footer-box">
-                <h4>Payment Details</h4>
-                <div class="payment-info">
-                    <p><strong>Bank:</strong> KCB</p>
-                    <p><strong>Paybill:</strong> 522 522</p>
-                    <p><strong>Account:</strong> 1142671674</p>
+                <h4>Support</h4>
+                <div class="emergency-badge">Emergency: 0720731430</div>
+            </div>
+            <div class="footer-box">
+                <h4>Payment (KCB)</h4>
+                <div class="payment-card">
+                    <p>Paybill: 522 522</p>
+                    <p>Acc: 1142671674</p>
+                    <p>Fountain of Life Wellness Center</p>
                 </div>
             </div>
         </div>
-        <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
-        <p style="font-size: 0.8rem; opacity: 0.6;">© 2026 Fountain of Life Wellness Center. All rights reserved.</p>
+        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Fountain of Life Wellness Center. All Rights Reserved.</p>
     </footer>
 
 </body>
